@@ -1,4 +1,4 @@
-﻿using DVG.WIS.Utilities;
+﻿using Utilities;
 using System;
 using System.Collections.Generic;
 using System.Text;

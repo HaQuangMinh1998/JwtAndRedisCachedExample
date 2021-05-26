@@ -7,7 +7,7 @@ using NLog.Config;
 using NLog.Targets;
 using NLog;
 
-namespace DVG.WIS.Utilities.Logs
+namespace Utilities.Logs
 {
     public class Logger
     {

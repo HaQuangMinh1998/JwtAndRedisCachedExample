@@ -1,4 +1,4 @@
-﻿namespace DVG.WIS.Caching.Interfaces
+﻿namespace Caching.Interfaces
 {
     public interface IQueueAndListCached
     {

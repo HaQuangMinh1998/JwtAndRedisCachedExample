@@ -1,0 +1,9 @@
+E:\MinhHQ\Desktop\JWT_Example\Utilities\bin\Debug\netstandard2.0\Utilities.deps.json
+E:\MinhHQ\Desktop\JWT_Example\Utilities\bin\Debug\netstandard2.0\Utilities.dll
+E:\MinhHQ\Desktop\JWT_Example\Utilities\bin\Debug\netstandard2.0\Utilities.pdb
+E:\MinhHQ\Desktop\JWT_Example\Utilities\obj\Debug\netstandard2.0\Utilities.csprojAssemblyReference.cache
+E:\MinhHQ\Desktop\JWT_Example\Utilities\obj\Debug\netstandard2.0\Utilities.AssemblyInfoInputs.cache
+E:\MinhHQ\Desktop\JWT_Example\Utilities\obj\Debug\netstandard2.0\Utilities.AssemblyInfo.cs
+E:\MinhHQ\Desktop\JWT_Example\Utilities\obj\Debug\netstandard2.0\Utilities.csproj.CoreCompileInputs.cache
+E:\MinhHQ\Desktop\JWT_Example\Utilities\obj\Debug\netstandard2.0\Utilities.dll
+E:\MinhHQ\Desktop\JWT_Example\Utilities\obj\Debug\netstandard2.0\Utilities.pdb

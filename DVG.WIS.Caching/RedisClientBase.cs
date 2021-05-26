@@ -1,6 +1,6 @@
-﻿using DVG.WIS.Caching.Configs;
-using DVG.WIS.Utilities;
-using DVG.WIS.Utilities.Logs;
+﻿using Caching.Configs;
+using Utilities;
+using Utilities.Logs;
 using StackExchange.Redis;
 using System;
 using System.IO;
@@ -9,7 +9,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DVG.WIS.Caching
+namespace Caching
 {
     public class RedisClientBase : IDisposable
     {

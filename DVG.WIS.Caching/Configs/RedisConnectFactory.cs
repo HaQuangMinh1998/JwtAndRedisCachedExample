@@ -1,7 +1,7 @@
 ﻿using StackExchange.Redis;
 using System;
 
-namespace DVG.WIS.Caching.Configs
+namespace Caching.Configs
 {
     public class RedisConnectFactory
     {

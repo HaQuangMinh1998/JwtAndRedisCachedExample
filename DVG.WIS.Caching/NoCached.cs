@@ -1,11 +1,11 @@
-﻿using DVG.WIS.Caching.Interfaces;
+﻿using Caching.Interfaces;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DVG.WIS.Caching
+namespace Caching
 {
     public class NoCached : ICached
     {

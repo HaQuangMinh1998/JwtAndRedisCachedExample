@@ -1,12 +1,12 @@
-﻿using DVG.WIS.Caching.Configs;
-using DVG.WIS.Caching.Interfaces;
-using DVG.WIS.Utilities;
+﻿using Caching.Configs;
+using Caching.Interfaces;
+using Utilities;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DVG.WIS.Caching
+namespace Caching
 {
     public class MemCached : ICached
     {

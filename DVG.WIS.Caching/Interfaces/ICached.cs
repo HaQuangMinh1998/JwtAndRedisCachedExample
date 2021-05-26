@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DVG.WIS.Caching.Interfaces
+namespace Caching.Interfaces
 {
     public interface ICached
     {

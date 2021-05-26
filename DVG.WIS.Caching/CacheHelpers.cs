@@ -1,4 +1,4 @@
-﻿using DVG.WIS.Utilities.Serialization;
+﻿using Utilities.Serialization;
 using Microsoft.AspNetCore.Http;
 using StackExchange.Redis;
 using System;
@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace DVG.WIS.Caching
+namespace Caching
 {
     public class CacheHelpers
     {

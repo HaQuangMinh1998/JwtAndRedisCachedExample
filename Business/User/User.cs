@@ -1,13 +1,13 @@
 ﻿using Business.User;
-using DVG.WIS.Caching;
-using DVG.WIS.Caching.Interfaces;
-using DVG.WIS.Utilities;
+using Caching;
+using Caching.Interfaces;
+using Utilities;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Linq;
 using System.Security.Claims;
 
-namespace DVG.WIS.Business.User
+namespace Business.User
 {
     public class User : IUser
     {

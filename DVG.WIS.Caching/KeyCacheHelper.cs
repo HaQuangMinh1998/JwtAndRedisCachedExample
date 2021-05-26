@@ -1,8 +1,8 @@
-﻿using DVG.WIS.Utilities;
-using DVG.WIS.Utilities.Serialization;
+﻿using Utilities;
+using Utilities.Serialization;
 using System.Linq;
 
-namespace DVG.WIS.Caching
+namespace Caching
 {
     public class KeyCacheHelper
     {

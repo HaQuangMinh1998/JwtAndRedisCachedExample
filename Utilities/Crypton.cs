@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace DVG.WIS.Utilities
+namespace Utilities
 {
     public sealed class CryptorEngine
     {

@@ -1,9 +1,9 @@
 ﻿using System;
-using DVG.WIS.Utilities.Logs;
+using Utilities.Logs;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace DVG.WIS.Utilities.Serialization
+namespace Utilities.Serialization
 {
     public interface INewtonJson
     {

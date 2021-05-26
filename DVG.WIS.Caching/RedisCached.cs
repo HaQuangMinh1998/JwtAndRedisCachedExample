@@ -1,6 +1,6 @@
-﻿using DVG.WIS.Caching.Configs;
-using DVG.WIS.Caching.Interfaces;
-using DVG.WIS.Utilities.Logs;
+﻿using Caching.Configs;
+using Caching.Interfaces;
+using Utilities.Logs;
 using Microsoft.AspNetCore.Http;
 using StackExchange.Redis;
 using System;
@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DVG.WIS.Caching
+namespace Caching
 {
     public class RedisCached : RedisClientBase, ICached
     {

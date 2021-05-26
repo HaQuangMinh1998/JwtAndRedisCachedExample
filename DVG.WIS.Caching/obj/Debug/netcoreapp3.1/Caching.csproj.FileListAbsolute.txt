@@ -1,0 +1,12 @@
+E:\MinhHQ\Desktop\JWT_Example\DVG.WIS.Caching\bin\Debug\netcoreapp3.1\Caching.deps.json
+E:\MinhHQ\Desktop\JWT_Example\DVG.WIS.Caching\bin\Debug\netcoreapp3.1\Caching.dll
+E:\MinhHQ\Desktop\JWT_Example\DVG.WIS.Caching\bin\Debug\netcoreapp3.1\Caching.pdb
+E:\MinhHQ\Desktop\JWT_Example\DVG.WIS.Caching\bin\Debug\netcoreapp3.1\Utilities.dll
+E:\MinhHQ\Desktop\JWT_Example\DVG.WIS.Caching\bin\Debug\netcoreapp3.1\Utilities.pdb
+E:\MinhHQ\Desktop\JWT_Example\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\Caching.csprojAssemblyReference.cache
+E:\MinhHQ\Desktop\JWT_Example\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\Caching.AssemblyInfoInputs.cache
+E:\MinhHQ\Desktop\JWT_Example\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\Caching.AssemblyInfo.cs
+E:\MinhHQ\Desktop\JWT_Example\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\Caching.csproj.CoreCompileInputs.cache
+E:\MinhHQ\Desktop\JWT_Example\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\Caching.csproj.CopyComplete
+E:\MinhHQ\Desktop\JWT_Example\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\Caching.dll
+E:\MinhHQ\Desktop\JWT_Example\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\Caching.pdb

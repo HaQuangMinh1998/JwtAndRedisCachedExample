@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DVG.WIS.Caching.Configs
+namespace Caching.Configs
 {
     public class FileCacheDependency
     {

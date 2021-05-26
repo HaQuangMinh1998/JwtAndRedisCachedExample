@@ -1,4 +1,4 @@
-﻿namespace DVG.WIS.Utilities
+﻿namespace Utilities
 {
     public class ResponseData
     {

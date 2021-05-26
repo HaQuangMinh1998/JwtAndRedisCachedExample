@@ -6,11 +6,11 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using DVG.WIS.Utilities.Serialization;
+using Utilities.Serialization;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 
-namespace DVG.WIS.Utilities
+namespace Utilities
 {
     public static class Extensions
     {

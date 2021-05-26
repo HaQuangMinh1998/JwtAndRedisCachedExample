@@ -6,9 +6,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Business.User;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
-using DVG.WIS.Utilities;
-using DVG.WIS.Caching;
-using DVG.WIS.Caching.Interfaces;
+using Utilities;
+using Caching;
+using Caching.Interfaces;
 
 namespace WebAPI.AppStart
 {
