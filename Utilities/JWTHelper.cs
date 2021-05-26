@@ -34,16 +34,14 @@ namespace Utilities
             }
         }
 
-        public string CreateToken(int userId, string username, string fullName, string key, System.DateTime? expires, string roles)
+        public string CreateToken( string username, string key, System.DateTime? expires, string roles)
         {
             System.DateTime issuedAt = System.DateTime.UtcNow;
             var tokenHandler = new JwtSecurityTokenHandler();
 
             ClaimsIdentity claimsIdentity = new ClaimsIdentity(new[]
             {
-                new Claim(ClaimTypes.SerialNumber, userId.ToString()),
                 new Claim(ClaimTypes.Name, username),
-                new Claim(ClaimTypes.Surname, fullName),
                 new Claim(ClaimTypes.Sid, key),
                 new Claim(ClaimTypes.Expired, expires?.ToString("dd/MM/yyyy HH:mm:ss.fff")),
                 new Claim(ClaimTypes.Role, roles)

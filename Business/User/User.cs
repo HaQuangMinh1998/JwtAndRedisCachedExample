@@ -75,7 +75,7 @@ namespace Business.User
             System.DateTime expires = System.DateTime.UtcNow.AddMinutes(AppSettings.Instance.GetInt32("JWTTimeout"));
             // gen checksumKey
             var key = JWTHelper.Instance.GenerateKeyCached(disName);
-            token = JWTHelper.Instance.CreateToken(0, disName, null, key, expires, roles);
+            token = JWTHelper.Instance.CreateToken( disName, key, expires, roles);
 
             // lưu key cached và token vào cache
             return SaveJWTTokenOnCache(key, token);

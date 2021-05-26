@@ -93,7 +93,6 @@ namespace DVG.CK.OMSApi.Filter
                                             // nếu token expired thì gen token mới
                                             if (System.DateTime.UtcNow >= expiredDate)
                                             {
-                                                // tại đây phải lock refresh token đến lúc lock đc giải pháp
                                                 while (_userService.CheckLockRefreshTokenOnCache(keyCached))
                                                 {
                                                     Thread.Sleep(1000);
@@ -113,7 +112,7 @@ namespace DVG.CK.OMSApi.Filter
                                                 var fullNameObj = currentPrincipal.Claims.Where(x => x.Type == ClaimTypes.Surname).FirstOrDefault();
                                                 if (fullNameObj != null && !string.IsNullOrEmpty(fullNameObj.Value)) fullName = fullNameObj.Value;
 
-                                                var newToken = JWTHelper.Instance.CreateToken(userId, userName, fullName, keyCached, expires, roles);
+                                                var newToken = JWTHelper.Instance.CreateToken(userName, keyCached, expires, roles);
                                                 _userService.SaveJWTTokenOnCache(keyCached, newToken);
 
                                                 var Identity = currentPrincipal.Identity as ClaimsIdentity;
