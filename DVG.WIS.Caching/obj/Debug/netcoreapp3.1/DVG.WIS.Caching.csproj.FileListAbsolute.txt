@@ -1,0 +1,12 @@
+E:\Project\thegioicaycms\DVG.WIS.Caching\bin\Debug\netcoreapp3.1\DVG.WIS.Caching.deps.json
+E:\Project\thegioicaycms\DVG.WIS.Caching\bin\Debug\netcoreapp3.1\DVG.WIS.Caching.dll
+E:\Project\thegioicaycms\DVG.WIS.Caching\bin\Debug\netcoreapp3.1\DVG.WIS.Caching.pdb
+E:\Project\thegioicaycms\DVG.WIS.Caching\bin\Debug\netcoreapp3.1\DVG.WIS.Utilities.dll
+E:\Project\thegioicaycms\DVG.WIS.Caching\bin\Debug\netcoreapp3.1\DVG.WIS.Utilities.pdb
+E:\Project\thegioicaycms\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\DVG.WIS.Caching.csprojAssemblyReference.cache
+E:\Project\thegioicaycms\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\DVG.WIS.Caching.AssemblyInfoInputs.cache
+E:\Project\thegioicaycms\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\DVG.WIS.Caching.AssemblyInfo.cs
+E:\Project\thegioicaycms\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\DVG.WIS.Caching.csproj.CoreCompileInputs.cache
+E:\Project\thegioicaycms\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\DVG.WIS.Caching.csproj.CopyComplete
+E:\Project\thegioicaycms\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\DVG.WIS.Caching.dll
+E:\Project\thegioicaycms\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\DVG.WIS.Caching.pdb
