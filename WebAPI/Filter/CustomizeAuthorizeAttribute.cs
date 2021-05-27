@@ -72,7 +72,7 @@ namespace ActionFilter
                                 var expiredObj = currentPrincipal.Claims.Where(x => x.Type == ClaimTypes.Expired).FirstOrDefault();
                                 if (expiredObj != null && !string.IsNullOrEmpty(expiredObj.Value))
                                 {
-                                    // kiểm tra trong cache có tồn tài key cached không
+                                    // kiểm tra trong cache có tồn tài key cached token không
                                     if (_userService.ChecksumJWTOnCache(keyCached))
                                     {
                                         var roles = string.Empty;
