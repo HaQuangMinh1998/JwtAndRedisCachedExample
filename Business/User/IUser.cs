@@ -11,7 +11,7 @@ namespace Business.User
         ResponseData Logout();
         bool ChecksumJWTOnCache(string keyCached);
         bool CheckExitstJWTTokenOnCache(string keyCached, string token);
-        bool SaveJWTTokenOnCache(string tokenName, string key, string token);
+        bool SaveTokenOnCache(string tokenName, string key, string token);
         bool CheckLockRefreshTokenOnCache(string keyCached);
         bool SetLockRefreshTokenOnCache(string checksumKey);
         bool DeleteJWTTokenOnCache(string tokenName, string key);
