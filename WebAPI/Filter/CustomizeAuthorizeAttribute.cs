@@ -23,6 +23,7 @@ namespace ActionFilter
         }
         public class CustomizeAuthorizeFilter : IAsyncActionFilter
         {
+            private static readonly string _jwtToken = "JWTToken";
             private readonly IUser _userService;
             private int[] Roles { get; set; }
             public CustomizeAuthorizeFilter(int[] _role, IUser userService)
@@ -103,7 +104,7 @@ namespace ActionFilter
                                                 System.DateTime expires = System.DateTime.UtcNow.AddMinutes(AppSettings.Instance.GetInt32("JWTTimeout"));
 
                                                 var newToken = JWTHelper.Instance.CreateToken(userName, keyCached, expires, roles);
-                                                _userService.SaveJWTTokenOnCache(keyCached, newToken);
+                                                _userService.SaveTokenOnCache(_jwtToken, keyCached, newToken);
 
                                                 var Identity = currentPrincipal.Identity as ClaimsIdentity;
                                                 Identity.AddClaim(new Claim(ClaimTypes.Authentication, newToken));

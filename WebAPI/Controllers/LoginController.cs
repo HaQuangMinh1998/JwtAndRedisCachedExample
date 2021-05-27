@@ -28,5 +28,19 @@ namespace WebAPI.Controllers
             var loginResult = _user.Login(userName, password, false);
             return Ok(loginResult);
         }
+        [HttpPost]
+        [Route("logout")]
+        public ActionResult Logout(string userName, string password)
+        {
+            var logoutResult = _user.Logout();
+            return Ok(logoutResult);
+        }
+        [HttpPost]
+        [Route("refreshtoken")]
+        public ActionResult RefreshToken(string refreshToken)
+        {
+            var result = _user.RefresToken(refreshToken);
+            return Ok(result);
+        }
     }
 }

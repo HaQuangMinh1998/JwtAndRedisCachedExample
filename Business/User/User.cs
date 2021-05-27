@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Http;
 using System;
 using System.Linq;
 using System.Security.Claims;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace Business.User
 {
@@ -75,6 +78,29 @@ namespace Business.User
             {
                 result.Success = DeleteJWTTokenOnCache( _jwtToken,checksumKey.Value) 
                     && DeleteJWTTokenOnCache(_jwtRefreshToken, checksumKey.Value);
+            }
+            return result;
+        }
+        public ResponseData RefresToken(string refreshToken)
+        {
+            var result = new ResponseData();
+            if (!string.IsNullOrEmpty(refreshToken))
+            {
+                var secretKey = Encoding.ASCII.GetBytes( AppSettings.Instance.GetString("JWTSecretKey"));
+                var tokenHander = new JwtSecurityTokenHandler();
+                tokenHander.ValidateToken(refreshToken, new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(secretKey),
+                    RequireExpirationTime = true,
+                    ValidateLifetime = true
+                },out SecurityToken validateToken);
+                var jwtToken = (JwtSecurityToken)validateToken;
+                string disName = jwtToken.Claims.First(a => a.Type.Contains("Name")).Value;
+                string roles = jwtToken.Claims.First(a => a.Type.Contains("Role")).Value;
+                var key = JWTHelper.Instance.GenerateKeyCached(disName);
+                System.DateTime expires = System.DateTime.UtcNow.AddMinutes(AppSettings.Instance.GetInt32("JWTTimeout"));
+                result.Token = JWTHelper.Instance.CreateToken(disName, key, expires, roles);
             }
             return result;
         }

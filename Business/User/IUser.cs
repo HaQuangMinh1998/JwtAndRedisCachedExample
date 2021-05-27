@@ -9,6 +9,7 @@ namespace Business.User
     {
         ResponseData Login(string userName, string password, bool isSavedPassword = false, string secureCode = "");
         ResponseData Logout();
+        ResponseData RefresToken(string refreshToken);
         bool ChecksumJWTOnCache(string keyCached);
         bool CheckExitstJWTTokenOnCache(string keyCached, string token);
         bool SaveTokenOnCache(string tokenName, string key, string token);
