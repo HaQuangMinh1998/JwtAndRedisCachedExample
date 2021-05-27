@@ -99,16 +99,8 @@ namespace ActionFilter
 
 
                                                 var userName = currentPrincipal.Identity.Name;
-                                                //đặt lại thời gian expire
+                                                //thêm thời gian expire
                                                 System.DateTime expires = System.DateTime.UtcNow.AddMinutes(AppSettings.Instance.GetInt32("JWTTimeout"));
-
-                                                var userId = 0;
-                                                var userIdObj = currentPrincipal.Claims.Where(x => x.Type == ClaimTypes.SerialNumber).FirstOrDefault();
-                                                if (userIdObj != null && !string.IsNullOrEmpty(userIdObj.Value)) userId = userIdObj.Value.ToInt();
-
-                                                var fullName = string.Empty;
-                                                var fullNameObj = currentPrincipal.Claims.Where(x => x.Type == ClaimTypes.Surname).FirstOrDefault();
-                                                if (fullNameObj != null && !string.IsNullOrEmpty(fullNameObj.Value)) fullName = fullNameObj.Value;
 
                                                 var newToken = JWTHelper.Instance.CreateToken(userName, keyCached, expires, roles);
                                                 _userService.SaveJWTTokenOnCache(keyCached, newToken);
