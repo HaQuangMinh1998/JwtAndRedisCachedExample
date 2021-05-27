@@ -10,7 +10,7 @@ namespace WebAPI.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class HomeController : Controller
+    public class ResourceController : Controller
     {
         [CustomizeAuthorize()]
         public IActionResult Index()
