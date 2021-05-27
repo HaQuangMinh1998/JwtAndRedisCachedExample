@@ -98,6 +98,6 @@
 
         public int Type { get; set; }
         public string Token { get; set; }
-        public bool RefreshToken { get; set; }
+        public string RefreshToken { get; set; }
     }
 }

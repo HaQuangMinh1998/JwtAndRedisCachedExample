@@ -16,9 +16,11 @@ namespace Business.User
         private static readonly string _disName = "Ha Minh";
         private static readonly string _roles = "1,3";
         private static readonly string _jwtToken = "JWTToken";
+        private static readonly string _jwtRefreshToken = "RefreshToken";
         private static readonly string _jwtLockRfToken = "JWTLockRefreshToken";
         private static readonly object ObjLocked = new object();
         private static readonly int _dayExpiredInMinute = AppSettings.Instance.GetInt32("DayCacheTime");
+        private static readonly int _weekExpiredInMinute = AppSettings.Instance.GetInt32("WeekCacheTime");
 
         private IHttpContextAccessor _httpContextAccessor;
         private readonly ICached _cacheClient;
@@ -51,8 +53,10 @@ namespace Business.User
                     Uid = Guid.NewGuid().ToString()
                 };
                 string token = string.Empty;
-                responseData.Success = this.JwtLogin(out token, _disName, _roles);
+                string refreshToken = string.Empty;
+                responseData.Success = this.JwtLogin(out token, _disName, _roles,out refreshToken);
                 responseData.Token = token;
+                responseData.RefreshToken = refreshToken;
                 return responseData;
             }
             else
@@ -69,33 +73,34 @@ namespace Business.User
             var checksumKey = identity.Claims.Where(x => x.Type == ClaimTypes.Sid).FirstOrDefault();
             if (checksumKey != null && !string.IsNullOrEmpty(checksumKey.Value))
             {
-                result.Success = DeleteJWTTokenOnCache(checksumKey.Value);
+                result.Success = DeleteJWTTokenOnCache( _jwtToken,checksumKey.Value) 
+                    && DeleteJWTTokenOnCache(_jwtRefreshToken, checksumKey.Value);
             }
             return result;
         }
-        private bool JwtLogin(out string token, string disName, string roles)
+        private bool JwtLogin(out string token, string disName, string roles,out string refreshToken)
         {
-            //set the time when it expires
             System.DateTime expires = System.DateTime.UtcNow.AddMinutes(AppSettings.Instance.GetInt32("JWTTimeout"));
-            // gen checksumKey
+            System.DateTime expiresAcceptToken = System.DateTime.UtcNow.AddMinutes(AppSettings.Instance.GetInt32("JWTRefreshTimeout"));
+            // gen key cached
             var key = JWTHelper.Instance.GenerateKeyCached(disName);
             token = JWTHelper.Instance.CreateToken(disName, key, expires, roles);
-
-            // lưu key cached và token vào cache
-            return SaveJWTTokenOnCache(key, token);
+            refreshToken = JWTHelper.Instance.CreateRefreshToken(disName, key, expiresAcceptToken);
+            // lưu cache
+            return this.SaveTokenOnCache(_jwtToken, key, token) &&
+                this.SaveTokenOnCache(_jwtRefreshToken, key, refreshToken);
 
         }
         #region JWT
-        public bool SaveJWTTokenOnCache(string key, string token)
+        public bool SaveTokenOnCache(string TokenName, string checksumKey, string acceptToken)
         {
-            string keyCached = KeyCacheHelper.GenCacheKeyStatic(_jwtToken, key);
-            return _cacheClient.Set(keyCached, token, _dayExpiredInMinute);
+            string keyCached = KeyCacheHelper.GenCacheKeyStatic(TokenName, checksumKey);
+            return _cacheClient.Set(keyCached, acceptToken, _weekExpiredInMinute);
 
         }
-
-        public bool DeleteJWTTokenOnCache(string key)
+        public bool DeleteJWTTokenOnCache(string tokenName, string key)
         {
-            string keyCached = KeyCacheHelper.GenCacheKeyStatic(_jwtToken, key);
+            string keyCached = KeyCacheHelper.GenCacheKeyStatic(tokenName, key);
             return _cacheClient.Remove(keyCached);
         }
         public bool ChecksumJWTOnCache(string checksumKey)
