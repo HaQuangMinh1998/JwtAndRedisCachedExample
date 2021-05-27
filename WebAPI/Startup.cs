@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static DVG.CK.OMSApi.Filter.CustomizeAuthorizeAttribute;
 
 namespace WebAPI
 {
@@ -26,6 +27,10 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddMvc(options =>
+            {
+                options.Filters.AddService<CustomizeAuthorizeFilterImp>();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
