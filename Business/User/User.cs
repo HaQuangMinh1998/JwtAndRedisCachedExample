@@ -11,12 +11,15 @@ namespace Business.User
 {
     public class User : IUser
     {
-        private readonly string _username = "1";
-        private readonly string _password = "1";
-        private readonly string _disName = "Ha Minh";
-        private readonly string _roles = "1,3";
+        private static readonly string _username = "1";
+        private static readonly string _password = "1";
+        private static readonly string _disName = "Ha Minh";
+        private static readonly string _roles = "1,3";
+        private static readonly string _jwtToken = "JWTToken";
+        private static readonly string _jwtLockRfToken = "JWTLockRefreshToken";
         private static readonly object ObjLocked = new object();
         private static readonly int _dayExpiredInMinute = AppSettings.Instance.GetInt32("DayCacheTime");
+
         private IHttpContextAccessor _httpContextAccessor;
         private readonly ICached _cacheClient;
         public User(IHttpContextAccessor httpContextAccessor, ICached cacheClient)
@@ -52,7 +55,8 @@ namespace Business.User
                 responseData.Token = token;
                 return responseData;
             }
-            else {
+            else
+            {
                 responseData.Message = "Sai username hoặc password!";
             }
             return responseData;
@@ -69,13 +73,13 @@ namespace Business.User
             }
             return result;
         }
-        private bool JwtLogin(out string token,string disName, string roles)
+        private bool JwtLogin(out string token, string disName, string roles)
         {
             //set the time when it expires
             System.DateTime expires = System.DateTime.UtcNow.AddMinutes(AppSettings.Instance.GetInt32("JWTTimeout"));
             // gen checksumKey
             var key = JWTHelper.Instance.GenerateKeyCached(disName);
-            token = JWTHelper.Instance.CreateToken( disName, key, expires, roles);
+            token = JWTHelper.Instance.CreateToken(disName, key, expires, roles);
 
             // lưu key cached và token vào cache
             return SaveJWTTokenOnCache(key, token);
@@ -84,24 +88,24 @@ namespace Business.User
         #region JWT
         public bool SaveJWTTokenOnCache(string key, string token)
         {
-            string keyCached = KeyCacheHelper.GenCacheKeyStatic("JWTToken", key);
+            string keyCached = KeyCacheHelper.GenCacheKeyStatic(_jwtToken, key);
             return _cacheClient.Set(keyCached, token, _dayExpiredInMinute);
 
         }
 
         public bool DeleteJWTTokenOnCache(string key)
         {
-            string keyCached = KeyCacheHelper.GenCacheKeyStatic("JWTToken", key);
+            string keyCached = KeyCacheHelper.GenCacheKeyStatic(_jwtToken, key);
             return _cacheClient.Remove(keyCached);
         }
         public bool ChecksumJWTOnCache(string checksumKey)
         {
-            string keyCached = KeyCacheHelper.GenCacheKeyStatic("JWTToken", checksumKey);
+            string keyCached = KeyCacheHelper.GenCacheKeyStatic(_jwtToken, checksumKey);
             return _cacheClient.ContainsKey(keyCached);
         }
         public bool CheckExitstJWTTokenOnCache(string checksumKey, string token)
         {
-            string keyCached = KeyCacheHelper.GenCacheKeyStatic("JWTToken", checksumKey);
+            string keyCached = KeyCacheHelper.GenCacheKeyStatic(_jwtToken, checksumKey);
             var val = _cacheClient.Get(keyCached);
             if (!string.IsNullOrEmpty(val))
             {
@@ -112,14 +116,14 @@ namespace Business.User
 
         public bool CheckLockRefreshTokenOnCache(string checksumKey)
         {
-            string keyCached = KeyCacheHelper.GenCacheKeyStatic("JWTLockRefreshToken", checksumKey);
+            string keyCached = KeyCacheHelper.GenCacheKeyStatic(_jwtLockRfToken, checksumKey);
             return _cacheClient.Get<bool>(keyCached);
         }
         public bool SetLockRefreshTokenOnCache(string checksumKey)
         {
             lock (ObjLocked)
             {
-                string keyCached = KeyCacheHelper.GenCacheKeyStatic("JWTLockRefreshToken", checksumKey);
+                string keyCached = KeyCacheHelper.GenCacheKeyStatic(_jwtLockRfToken, checksumKey);
                 return _cacheClient.Set(keyCached, true, 5);
             }
         }

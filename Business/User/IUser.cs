@@ -14,5 +14,6 @@ namespace Business.User
         bool SaveJWTTokenOnCache(string key, string token);
         bool CheckLockRefreshTokenOnCache(string keyCached);
         bool SetLockRefreshTokenOnCache(string checksumKey);
+        bool DeleteJWTTokenOnCache(string key);
     }
 }
