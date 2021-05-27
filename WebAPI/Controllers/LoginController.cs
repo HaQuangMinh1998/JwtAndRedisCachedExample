@@ -23,7 +23,7 @@ namespace WebAPI.Controllers
         }
         [HttpPost]
         [Route("login")]
-        public ActionResult DoLogin(string userName, string password)
+        public ActionResult Login(string userName, string password)
         {
             var loginResult = _user.Login(userName, password, false);
             return Ok(loginResult);

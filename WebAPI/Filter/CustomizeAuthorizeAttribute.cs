@@ -13,26 +13,24 @@ using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DVG.CK.OMSApi.Filter
+namespace ActionFilter
 {
     public class CustomizeAuthorizeAttribute : TypeFilterAttribute
     {
-        public CustomizeAuthorizeAttribute(params int[] _roles) : base(typeof(CustomizeAuthorizeFilterImp))
+        public CustomizeAuthorizeAttribute(params int[] _roles) : base(typeof(CustomizeAuthorizeFilter))
         {
             Arguments = new object[] { _roles };
         }
-        public class CustomizeAuthorizeFilterImp : IAsyncActionFilter
+        public class CustomizeAuthorizeFilter : IAsyncActionFilter
         {
             private readonly IUser _userService;
             private int[] Roles { get; set; }
-            public CustomizeAuthorizeFilterImp(int[] _role, IUser userService)
+            public CustomizeAuthorizeFilter(int[] _role, IUser userService)
             {
                 Roles = _role;
                 _userService = userService;
             }
             public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
-
-
             {
                 var token = string.Empty;
                 if (!TryRetrieveToken(context.HttpContext.Request, out token))

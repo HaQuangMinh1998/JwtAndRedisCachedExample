@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebAPI.AppStart;
-using static DVG.CK.OMSApi.Filter.CustomizeAuthorizeAttribute;
+using static ActionFilter.CustomizeAuthorizeAttribute;
 
 namespace WebAPI
 {
@@ -31,7 +31,7 @@ namespace WebAPI
             services.AddControllers();
             services.AddMvc(options =>
             {
-                options.Filters.AddService<CustomizeAuthorizeFilterImp>();
+                options.Filters.AddService<CustomizeAuthorizeFilter>();
             });
         }
 

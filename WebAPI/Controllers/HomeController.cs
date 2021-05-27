@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using ActionFilter;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,13 +8,19 @@ using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
-    [Authorize]
+    [Route("[controller]")]
+    [ApiController]
     public class HomeController : Controller
     {
+        [CustomizeAuthorize()]
         public IActionResult Index()
         {
             return Json("hihi");
         }
-
+        [CustomizeAuthorize(1, 2)]
+        public IActionResult Index2()
+        {
+            return Json("hihi2");
+        }
     }
 }
