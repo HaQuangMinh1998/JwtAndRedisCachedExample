@@ -38,6 +38,7 @@ namespace Utilities
         public string CreateToken( string username, string key, System.DateTime? expires, string roles)
         {
             System.DateTime issuedAt = System.DateTime.Now;
+            System.DateTime expiresVal = expires.HasValue ? expires.Value : DateTime.Now;
             var tokenHandler = new JwtSecurityTokenHandler();
             string issuer = AppSettings.Instance.GetString(_jwtIssuer);
             string audience = AppSettings.Instance.GetString(_jwtAudience);
@@ -45,7 +46,7 @@ namespace Utilities
             {
                 new Claim(ClaimTypes.Name, username),
                 new Claim(ClaimTypes.Sid, key),
-                new Claim(ClaimTypes.Expired, expires?.ToString("dd/MM/yyyy HH:mm:ss.fff")),
+               new Claim(ClaimTypes.Expired, this.DateTimeToUnixTime(expiresVal).ToString()),
                 new Claim(ClaimTypes.Role, roles)
             });
 
@@ -88,7 +89,7 @@ namespace Utilities
         public string CreateRefreshToken(string username, string key, System.DateTime? expires)
         {
             System.DateTime issuedAt = System.DateTime.Now;
-
+            System.DateTime expiresVal = expires.HasValue ? expires.Value : DateTime.Now;
             var tokenHandler = new JwtSecurityTokenHandler();
             string issuer = AppSettings.Instance.GetString(_jwtIssuer);
             string audience = AppSettings.Instance.GetString(_jwtAudience);
@@ -96,7 +97,7 @@ namespace Utilities
             {
                 new Claim(ClaimTypes.Name, username),
                 new Claim(ClaimTypes.Sid, key),
-                new Claim(ClaimTypes.Expired, expires?.ToString("dd/MM/yyyy HH:mm:ss.fff")),
+                new Claim(ClaimTypes.Expired, this.DateTimeToUnixTime(expiresVal).ToString()),
             });
             var now = DateTime.Now;
             var securityKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(System.Text.Encoding.Default.GetBytes(_JWTSecretKey));
@@ -114,6 +115,18 @@ namespace Utilities
 
             return tokenString;
         }
-      
+        public System.DateTime UnixTimeStampToDateTime(long unixTimeStamp)
+        {
+            System.DateTime dtDateTime = new System.DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+            dtDateTime = dtDateTime.AddSeconds(unixTimeStamp / 1000.0).ToLocalTime();
+            return dtDateTime;
+        }
+        public long DateTimeToUnixTime(System.DateTime dateTime)
+        {
+            System.DateTime epoch = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
+            TimeSpan span = (TimeSpan)(dateTime - epoch.ToLocalTime());
+            return (long)(span.TotalSeconds * 1000.0);
+        }
+
     }
 }

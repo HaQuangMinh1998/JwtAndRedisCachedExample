@@ -46,7 +46,7 @@ namespace ActionFilter
                 try
                 {
                     string sec = AppSettings.Instance.GetString("JWTSecretKey");
-                    var now = DateTime.UtcNow;
+                    var now = DateTime.Now;
                     var securityKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(System.Text.Encoding.Default.GetBytes(sec));
 
 
@@ -90,13 +90,13 @@ namespace ActionFilter
                                         if (_userService.CheckExitstJWTTokenOnCache(keyCached, token))
                                         {
                                             //Kiểm tra xem token đã bị expire chưa
-                                            var expired = expiredObj.Value.ToLong();
+                                            long expired = expiredObj.Value.ToLong();
                                             //chuyển thời gian là số sang dạng datetime 
-                                            System.DateTime expiredDate = new System.DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-                                            expiredDate = expiredDate.AddSeconds(expired / 1000.0).ToLocalTime();
+                                            JWTHelper jwtHelper = new JWTHelper();
+                                            var expiredDate = jwtHelper.UnixTimeStampToDateTime(expired);
 
                                             // nếu token expired thì gen token mới
-                                            if (System.DateTime.UtcNow >= expiredDate)
+                                            if (System.DateTime.Now >= expiredDate)
                                             {
                                                 while (_userService.CheckLockRefreshTokenOnCache(keyCached))
                                                 {
@@ -107,7 +107,7 @@ namespace ActionFilter
 
                                                 var userName = currentPrincipal.Identity.Name;
                                                 //thêm thời gian expire
-                                                System.DateTime expires = System.DateTime.UtcNow.AddMinutes(AppSettings.Instance.GetInt32("JWTTimeout"));
+                                                System.DateTime expires = System.DateTime.Now.AddMinutes(AppSettings.Instance.GetInt32("JWTTimeout"));
 
                                                 var newToken = JWTHelper.Instance.CreateToken(userName, keyCached, expires, roles);
                                                 _userService.SaveTokenOnCache(_jwtToken, keyCached, newToken);
@@ -128,13 +128,17 @@ namespace ActionFilter
                                             await next();
                                             return;
                                         }
+                                        else
+                                        {
+                                            context.HttpContext.Response.StatusCode = HttpStatusCode.Unauthorized.GetHashCode();
+                                        }
                                     }
                                 }
                             }
                         }
                     }
 
-                    throw new SecurityTokenValidationException();
+                   // throw new SecurityTokenValidationException();
                 }
                 catch (SecurityTokenValidationException e)
                 {
@@ -173,7 +177,6 @@ namespace ActionFilter
             {
                 if (expires != null)
                 {
-                    //if (System.DateTime.UtcNow < expires)
                     return true;
                 }
                 return false;

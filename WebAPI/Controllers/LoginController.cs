@@ -26,7 +26,6 @@ namespace WebAPI.Controllers
         [Route("login")]
         public ActionResult Login(string userName, string password)
         {
-            _user.Logout();
             var loginResult = _user.Login(userName, password, false);
             return Ok(loginResult);
         }

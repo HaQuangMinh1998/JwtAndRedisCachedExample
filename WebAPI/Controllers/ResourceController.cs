@@ -1,6 +1,7 @@
 ﻿using ActionFilter;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +13,20 @@ namespace WebAPI.Controllers
     [ApiController]
     public class ResourceController : Controller
     {
+        private readonly ILogger<ResourceController> _logger;
+
+        public ResourceController(ILogger<ResourceController> logger)
+        {
+            _logger = logger;
+        }
+        [Route("index")]
         [CustomizeAuthorize()]
         public IActionResult Index()
         {
             return Json("hihi");
         }
-        [CustomizeAuthorize(1, 2)]
+        [Route("index2")]
+        [CustomizeAuthorize(4,5)]
         public IActionResult Index2()
         {
             return Json("hihi2");
