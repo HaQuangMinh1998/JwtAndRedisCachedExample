@@ -10,16 +10,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Utilities;
 using WebAPI.AppStart;
-using static ActionFilter.CustomizeAuthorizeAttribute;
+//using static ActionFilter.CustomizeAuthorizeAttribute;
 
 namespace WebAPI
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
         {
+            Console.WriteLine(env.EnvironmentName);
             Configuration = configuration;
+            AppSettings.Instance.SetConfiguration(Configuration);
         }
 
         public IConfiguration Configuration { get; }
@@ -29,10 +32,10 @@ namespace WebAPI
         {
             IOC.RegisterTypes(services);
             services.AddControllers();
-            services.AddMvc(options =>
-            {
-                options.Filters.AddService<CustomizeAuthorizeFilter>();
-            });
+            //services.AddMvc(options =>
+            //{
+            //    options.Filters.AddService<CustomizeAuthorizeFilter>();
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

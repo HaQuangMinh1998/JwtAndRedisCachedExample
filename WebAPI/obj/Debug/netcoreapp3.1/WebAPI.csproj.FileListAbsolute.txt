@@ -6,12 +6,8 @@ E:\MinhHQ\Desktop\JWT_Example\WebAPI\bin\Debug\netcoreapp3.1\WebAPI.runtimeconfi
 E:\MinhHQ\Desktop\JWT_Example\WebAPI\bin\Debug\netcoreapp3.1\WebAPI.runtimeconfig.dev.json
 E:\MinhHQ\Desktop\JWT_Example\WebAPI\bin\Debug\netcoreapp3.1\WebAPI.dll
 E:\MinhHQ\Desktop\JWT_Example\WebAPI\bin\Debug\netcoreapp3.1\WebAPI.pdb
-E:\MinhHQ\Desktop\JWT_Example\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
-E:\MinhHQ\Desktop\JWT_Example\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
-E:\MinhHQ\Desktop\JWT_Example\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
 E:\MinhHQ\Desktop\JWT_Example\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
 E:\MinhHQ\Desktop\JWT_Example\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-E:\MinhHQ\Desktop\JWT_Example\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 E:\MinhHQ\Desktop\JWT_Example\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
 E:\MinhHQ\Desktop\JWT_Example\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
 E:\MinhHQ\Desktop\JWT_Example\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll

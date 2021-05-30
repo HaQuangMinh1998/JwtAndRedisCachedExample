@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Utilities;
 using Caching;
 using Caching.Interfaces;
+using ActionFilter;
 
 namespace WebAPI.AppStart
 {
@@ -18,7 +19,6 @@ namespace WebAPI.AppStart
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
-            
             services.AddSingleton<ICached, RedisCached>();
             services.AddTransient<IUser, User>();
 

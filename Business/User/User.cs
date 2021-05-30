@@ -15,7 +15,7 @@ namespace Business.User
     public class User : IUser
     {
         private static readonly string _username = "1";
-        private static readonly string _password = "1";
+        private static readonly string _password = "I82X5exjK422E8H+qZdAJg=="; //1
         private static readonly string _disName = "Ha Minh";
         private static readonly string _roles = "1,3";
         private static readonly string _jwtToken = "JWTToken";
@@ -69,6 +69,7 @@ namespace Business.User
             return responseData;
         }
 
+
         public ResponseData Logout()
         {
             var result = new ResponseData();
@@ -99,15 +100,15 @@ namespace Business.User
                 string disName = jwtToken.Claims.First(a => a.Type.Contains("Name")).Value;
                 string roles = jwtToken.Claims.First(a => a.Type.Contains("Role")).Value;
                 var key = JWTHelper.Instance.GenerateKeyCached(disName);
-                System.DateTime expires = System.DateTime.UtcNow.AddMinutes(AppSettings.Instance.GetInt32("JWTTimeout"));
+                System.DateTime expires = System.DateTime.Now.AddMinutes(AppSettings.Instance.GetInt32("JWTTimeout"));
                 result.Token = JWTHelper.Instance.CreateToken(disName, key, expires, roles);
             }
             return result;
         }
         private bool JwtLogin(out string token, string disName, string roles,out string refreshToken)
         {
-            System.DateTime expires = System.DateTime.UtcNow.AddMinutes(AppSettings.Instance.GetInt32("JWTTimeout"));
-            System.DateTime expiresAcceptToken = System.DateTime.UtcNow.AddMinutes(AppSettings.Instance.GetInt32("JWTRefreshTimeout"));
+            System.DateTime expires = System.DateTime.Now.AddMinutes(AppSettings.Instance.GetInt32("JWTTimeout"));
+            System.DateTime expiresAcceptToken = System.DateTime.Now.AddMinutes(AppSettings.Instance.GetInt32("JWTRefreshTimeout"));
             // gen key cached
             var key = JWTHelper.Instance.GenerateKeyCached(disName);
             token = JWTHelper.Instance.CreateToken(disName, key, expires, roles);

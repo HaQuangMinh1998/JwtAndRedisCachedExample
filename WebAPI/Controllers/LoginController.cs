@@ -1,4 +1,5 @@
-﻿using Business.User;
+﻿using ActionFilter;
+using Business.User;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -25,11 +26,13 @@ namespace WebAPI.Controllers
         [Route("login")]
         public ActionResult Login(string userName, string password)
         {
+            _user.Logout();
             var loginResult = _user.Login(userName, password, false);
             return Ok(loginResult);
         }
         [HttpPost]
         [Route("logout")]
+        [CustomizeAuthorize]
         public ActionResult Logout(string userName, string password)
         {
             var logoutResult = _user.Logout();

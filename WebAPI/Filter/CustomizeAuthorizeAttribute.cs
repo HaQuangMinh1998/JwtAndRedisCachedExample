@@ -24,6 +24,8 @@ namespace ActionFilter
         public class CustomizeAuthorizeFilter : IAsyncActionFilter
         {
             private static readonly string _jwtToken = "JWTToken";
+            private static readonly string _jwtIssuer = "JWTIssuer";
+            private static readonly string _jwtAudience = "JWTAudience";
             private readonly IUser _userService;
             private int[] Roles { get; set; }
             public CustomizeAuthorizeFilter(int[] _role, IUser userService)
@@ -50,10 +52,14 @@ namespace ActionFilter
 
                     SecurityToken securityToken;
                     JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
+                    string issuer = AppSettings.Instance.GetString(_jwtIssuer);
+                    string audience = AppSettings.Instance.GetString(_jwtAudience);
 
                     // Đối tượng chưa check expire để lấy thông tin 
                     TokenValidationParameters validationParameters = new TokenValidationParameters()
                     {
+                        ValidAudience = audience,
+                        ValidIssuer = issuer,
                         ValidateLifetime = true,
                         ValidateIssuerSigningKey = true,
                         LifetimeValidator = this.LifetimeValidator,
