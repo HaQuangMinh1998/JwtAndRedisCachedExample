@@ -19,6 +19,8 @@ namespace WebAPI.Controllers
         {
             _logger = logger;
         }
+
+        [HttpGet]
         [Route("index")]
         [CustomizeAuthorize()]
         public IActionResult Index()
@@ -30,6 +32,12 @@ namespace WebAPI.Controllers
         public IActionResult Index2()
         {
             return Json("hihi2");
+        }
+        [Route("index3")]
+        [CustomizeAuthorize(1, 3)]
+        public IActionResult Index3()
+        {
+            return Json("hihi3");
         }
     }
 }

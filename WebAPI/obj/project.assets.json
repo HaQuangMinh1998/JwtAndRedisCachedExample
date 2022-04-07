@@ -1744,23 +1744,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\minhhq.DAIVIETGROUP\\.nuget\\packages\\": {},
+    "C:\\Users\\haqua\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\MinhHQ\\Desktop\\JWT_Example\\WebAPI\\WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\haqua\\OneDrive\\Máy tính\\JwtAndRedisCachedExample\\WebAPI\\WebAPI.csproj",
       "projectName": "WebAPI",
-      "projectPath": "E:\\MinhHQ\\Desktop\\JWT_Example\\WebAPI\\WebAPI.csproj",
-      "packagesPath": "C:\\Users\\minhhq.DAIVIETGROUP\\.nuget\\packages\\",
-      "outputPath": "E:\\MinhHQ\\Desktop\\JWT_Example\\WebAPI\\obj\\",
+      "projectPath": "C:\\Users\\haqua\\OneDrive\\Máy tính\\JwtAndRedisCachedExample\\WebAPI\\WebAPI.csproj",
+      "packagesPath": "C:\\Users\\haqua\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\haqua\\OneDrive\\Máy tính\\JwtAndRedisCachedExample\\WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\minhhq.DAIVIETGROUP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\haqua\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1774,14 +1774,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "E:\\MinhHQ\\Desktop\\JWT_Example\\Business\\Business.csproj": {
-              "projectPath": "E:\\MinhHQ\\Desktop\\JWT_Example\\Business\\Business.csproj"
+            "C:\\Users\\haqua\\OneDrive\\Máy tính\\JwtAndRedisCachedExample\\Business\\Business.csproj": {
+              "projectPath": "C:\\Users\\haqua\\OneDrive\\Máy tính\\JwtAndRedisCachedExample\\Business\\Business.csproj"
             },
-            "E:\\MinhHQ\\Desktop\\JWT_Example\\DVG.WIS.Caching\\Caching.csproj": {
-              "projectPath": "E:\\MinhHQ\\Desktop\\JWT_Example\\DVG.WIS.Caching\\Caching.csproj"
+            "C:\\Users\\haqua\\OneDrive\\Máy tính\\JwtAndRedisCachedExample\\DVG.WIS.Caching\\Caching.csproj": {
+              "projectPath": "C:\\Users\\haqua\\OneDrive\\Máy tính\\JwtAndRedisCachedExample\\DVG.WIS.Caching\\Caching.csproj"
             },
-            "E:\\MinhHQ\\Desktop\\JWT_Example\\Utilities\\Utilities.csproj": {
-              "projectPath": "E:\\MinhHQ\\Desktop\\JWT_Example\\Utilities\\Utilities.csproj"
+            "C:\\Users\\haqua\\OneDrive\\Máy tính\\JwtAndRedisCachedExample\\Utilities\\Utilities.csproj": {
+              "projectPath": "C:\\Users\\haqua\\OneDrive\\Máy tính\\JwtAndRedisCachedExample\\Utilities\\Utilities.csproj"
             }
           }
         }
@@ -1811,6 +1811,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[3.1.23, 3.1.23]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -1819,7 +1825,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -47,7 +47,7 @@ namespace Business.User
 
             password = Crypton.Encrypt(password);
             //valide login
-            if (userName.Trim() == _username && password.Trim() == _password)
+            if (userName?.Trim() == _username && password?.Trim() == _password)
             {
                 responseData.Data = new
                 {

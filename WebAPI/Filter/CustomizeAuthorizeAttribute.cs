@@ -80,14 +80,16 @@ namespace ActionFilter
                                 if (expiredObj != null && !string.IsNullOrEmpty(expiredObj.Value))
                                 {
                                     // kiểm tra trong cache có tồn tài key cached token không
-                                    if (_userService.ChecksumJWTOnCache(keyCached))
+                                    //if (_userService.ChecksumJWTOnCache(keyCached))
+                                    if(true)
                                     {
                                         var roles = string.Empty;
                                         var rolesObj = currentPrincipal.Claims.Where(x => x.Type == ClaimTypes.Role).FirstOrDefault();
                                         if (rolesObj != null && !string.IsNullOrEmpty(rolesObj.Value)) roles = rolesObj.Value;
 
                                         // kiểm tra xem token có tồn tại trong cache không
-                                        if (_userService.CheckExitstJWTTokenOnCache(keyCached, token))
+                                        //if (_userService.CheckExitstJWTTokenOnCache(keyCached, token))
+                                        if(true)
                                         {
                                             //Kiểm tra xem token đã bị expire chưa
                                             long expired = expiredObj.Value.ToLong();

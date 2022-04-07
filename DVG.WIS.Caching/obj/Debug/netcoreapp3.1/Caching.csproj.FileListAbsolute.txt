@@ -10,3 +10,16 @@ E:\MinhHQ\Desktop\JWT_Example\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\Caching.cs
 E:\MinhHQ\Desktop\JWT_Example\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\Caching.csproj.CopyComplete
 E:\MinhHQ\Desktop\JWT_Example\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\Caching.dll
 E:\MinhHQ\Desktop\JWT_Example\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\Caching.pdb
+C:\Users\haqua\OneDrive\Máy tính\JwtAndRedisCachedExample\DVG.WIS.Caching\bin\Debug\netcoreapp3.1\Caching.deps.json
+C:\Users\haqua\OneDrive\Máy tính\JwtAndRedisCachedExample\DVG.WIS.Caching\bin\Debug\netcoreapp3.1\Caching.dll
+C:\Users\haqua\OneDrive\Máy tính\JwtAndRedisCachedExample\DVG.WIS.Caching\bin\Debug\netcoreapp3.1\Caching.pdb
+C:\Users\haqua\OneDrive\Máy tính\JwtAndRedisCachedExample\DVG.WIS.Caching\bin\Debug\netcoreapp3.1\Utilities.dll
+C:\Users\haqua\OneDrive\Máy tính\JwtAndRedisCachedExample\DVG.WIS.Caching\bin\Debug\netcoreapp3.1\Utilities.pdb
+C:\Users\haqua\OneDrive\Máy tính\JwtAndRedisCachedExample\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\Caching.csproj.AssemblyReference.cache
+C:\Users\haqua\OneDrive\Máy tính\JwtAndRedisCachedExample\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\Caching.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\haqua\OneDrive\Máy tính\JwtAndRedisCachedExample\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\Caching.AssemblyInfoInputs.cache
+C:\Users\haqua\OneDrive\Máy tính\JwtAndRedisCachedExample\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\Caching.AssemblyInfo.cs
+C:\Users\haqua\OneDrive\Máy tính\JwtAndRedisCachedExample\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\Caching.csproj.CoreCompileInputs.cache
+C:\Users\haqua\OneDrive\Máy tính\JwtAndRedisCachedExample\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\Caching.csproj.CopyComplete
+C:\Users\haqua\OneDrive\Máy tính\JwtAndRedisCachedExample\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\Caching.dll
+C:\Users\haqua\OneDrive\Máy tính\JwtAndRedisCachedExample\DVG.WIS.Caching\obj\Debug\netcoreapp3.1\Caching.pdb
