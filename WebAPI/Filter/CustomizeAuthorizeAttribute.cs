@@ -120,12 +120,12 @@ namespace ActionFilter
                                             }
 
                                             context.HttpContext.User = currentPrincipal;
-
                                             if (!CheckRoles(roles))
                                             {
                                                 context.HttpContext.Response.StatusCode = HttpStatusCode.MethodNotAllowed.GetHashCode();
                                                 return;
                                             }
+                                            
 
                                             await next();
                                             return;

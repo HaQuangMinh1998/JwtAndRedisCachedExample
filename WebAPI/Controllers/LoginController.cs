@@ -27,6 +27,7 @@ namespace WebAPI.Controllers
         public ActionResult Login(string userName, string password)
         {
             var loginResult = _user.Login(userName, password, false);
+
             return Ok(loginResult);
         }
         [HttpPost]

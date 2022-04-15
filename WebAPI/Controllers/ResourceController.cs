@@ -34,7 +34,7 @@ namespace WebAPI.Controllers
             return Json("hihi2");
         }
         [Route("index3")]
-        [CustomizeAuthorize(1, 3)]
+       // [CustomizeAuthorize(1, 3)]
         public IActionResult Index3()
         {
             return Json("hihi3");

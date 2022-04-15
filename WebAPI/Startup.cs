@@ -32,13 +32,8 @@ namespace WebAPI
         {
             IOC.RegisterTypes(services);
             services.AddControllers();
-            //services.AddMvc(options =>
-            //{
-            //    options.Filters.AddService<CustomizeAuthorizeFilter>();
-            //});
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
