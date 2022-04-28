@@ -74,7 +74,8 @@ namespace ActionFilter
                         if (checksumObj != null)
                         {
                             var keyCached = checksumObj.Value;
-                            if (!string.IsNullOrEmpty(keyCached))
+                            if (
+                                !string.IsNullOrEmpty(keyCached))
                             {
                                 var expiredObj = currentPrincipal.Claims.Where(x => x.Type == ClaimTypes.Expired).FirstOrDefault();
                                 if (expiredObj != null && !string.IsNullOrEmpty(expiredObj.Value))
@@ -193,7 +194,7 @@ namespace ActionFilter
                     return false;
                 }
                 var bearerToken = authzHeaders.ElementAt(0);
-                token = bearerToken.StartsWith("Bearer ") ? bearerToken.Substring(7) : bearerToken;
+                token = bearerToken.StartsWith("Beareyr ") ? bearerToken.Substring(7) : bearerToken;
                 return true;
             }
         }

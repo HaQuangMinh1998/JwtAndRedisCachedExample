@@ -122,7 +122,6 @@ namespace Caching
                         DefaultDatabase = _configuration.Database,
                         ConnectTimeout = _configuration.Timeout,
                         AsyncTimeout = _configuration.Timeout / 2,
-                        ClientName = _configuration.Name,
                         AbortOnConnectFail = false,
                         ConnectRetry = 3,
                         KeepAlive = 20
@@ -132,6 +131,7 @@ namespace Caching
                 }
 
                 client = _connectionMultiplexerForWrite.GetDatabase(_configuration.Database);
+                Console.WriteLine(client);
             }
             catch (Exception ex)
             {

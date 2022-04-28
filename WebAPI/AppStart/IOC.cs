@@ -10,6 +10,7 @@ using Utilities;
 using Caching;
 using Caching.Interfaces;
 using ActionFilter;
+using Caching.Configs;
 
 namespace WebAPI.AppStart
 {
@@ -19,7 +20,18 @@ namespace WebAPI.AppStart
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
-            services.AddSingleton<ICached, RedisCached>();
+            // Caching
+            var cacheType = AppSettings.Instance.GetInt32("CacheType", (int)CachedType.NoCache);
+            switch (cacheType)
+            {
+                case (int)CachedType.Redis:
+                    services.AddSingleton<ICached, RedisCached>();
+                    break;
+                case (int)CachedType.NoCache:
+                default:
+                    services.AddSingleton<ICached, NoCached>();
+                    break;
+            }
             services.AddTransient<IUser, User>();
 
 

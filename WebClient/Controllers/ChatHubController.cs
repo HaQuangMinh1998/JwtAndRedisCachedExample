@@ -18,8 +18,7 @@ namespace WebClient.Controllers
         private readonly IHubContext<ChatHubService> _hubContext;
 
         public ChatHubController(ILogger<ChatHubController> logger,
-            IHubContext<ChatHubService> hubContext,
-            IChatHubService chatHubService)
+            IHubContext<ChatHubService> hubContext)
         {
             this._logger = logger;
             this._hubContext = hubContext ?? throw new ArgumentNullException(nameof(hubContext));
